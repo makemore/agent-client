@@ -1,10 +1,24 @@
 # @makemore/agent-client
 
+> **Legacy source — use the frontend package for active development.** This
+> standalone repository contains the older **0.3.1** source. The canonical active
+> package is **@makemore/agent-client 3.0.1**, maintained in
+> [`makemore/agent-frontend/packages/agent-client`](https://github.com/makemore/agent-frontend/tree/main/packages/agent-client)
+> (`clients/agent-frontend/packages/agent-client` in the meta-repo).
+> Make fixes and follow current API/setup documentation there, not in this
+> standalone source. The npm package name remains `@makemore/agent-client`;
+> migrate local-path/git dependencies to the published package or canonical
+> source and review the current README before upgrading across major versions.
+> The examples below describe the legacy source and are not the current API reference.
+
 Framework-agnostic TypeScript client for the **agent-runtime** protocol. Provides SSE streaming, auth strategies, case conversion, and a typed event system — zero runtime dependencies.
 
-The client follows the product-neutral mobile runtime contract in `agent/docs/mobile-protocol-contract.md`. It understands terminal run events plus stream-completion waiting states such as `run.suspended` and `client.action.required`.
+The client follows the product-neutral [mobile runtime contract](https://github.com/makemore/agent_libraries/blob/main/plans/mobile-protocol-contract.md). It understands terminal run events plus stream-completion waiting states such as `run.suspended` and `client.action.required`.
 
 ## Install
+
+For new integrations, this installs the published package maintained in the
+frontend repository, not this standalone source:
 
 ```bash
 npm install @makemore/agent-client
