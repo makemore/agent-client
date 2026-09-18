@@ -133,7 +133,12 @@ export interface CreateRunParams {
   metadata?: Record<string, unknown>;
   model?: string;
   thinking?: boolean;
+  /** Canonical index cut; counts server-visible messages, not UI rows. */
   supersedeFromMessageIndex?: number;
+  /** Preferred cut: the edited user message's `id` from the conversation detail. */
+  supersedeFromMessageId?: string;
+  /** Cut at the run that accepted the edited user turn (live-sent messages). */
+  supersedeFromRunId?: string;
   files?: File[];
   /** When true, the server treats this run as ephemeral (client owns history). */
   ephemeral?: boolean;
@@ -153,6 +158,8 @@ export interface RunResponse {
 // ---------------------------------------------------------------------------
 
 export interface ConversationMessage {
+  /** Stable server identity; use as an edit/retry cut target. */
+  id?: string;
   role: string;
   content: string;
   timestamp?: string;

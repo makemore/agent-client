@@ -225,6 +225,12 @@ export class AgentClient {
       ...(params.supersedeFromMessageIndex !== undefined
         ? { supersedeFromMessageIndex: params.supersedeFromMessageIndex }
         : {}),
+      ...(params.supersedeFromMessageId
+        ? { supersedeFromMessageId: params.supersedeFromMessageId }
+        : {}),
+      ...(params.supersedeFromRunId
+        ? { supersedeFromRunId: params.supersedeFromRunId }
+        : {}),
       ...(ephemeral ? { ephemeral: true } : {}),
       ...(params.memories && params.memories.length > 0
         ? { memories: params.memories }
